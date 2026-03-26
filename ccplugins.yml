@@ -1,0 +1,45 @@
+# Claude Code Plugins & Skills Configuration
+# Run `./install.sh` to sync everything to the current machine
+
+# ── Marketplaces ─────────────────────────────────────────────────────────────
+# Custom plugin marketplaces to register before installing plugins.
+# Built-in 'claude-plugins-official' is always available and doesn't need to
+# be listed here.
+#
+marketplaces:
+  - name: claude-hud
+    source: jarrodwatts/claude-hud   # GitHub repo (owner/repo)
+
+# ── Plugins ───────────────────────────────────────────────────────────────────
+# Install plugins from registered marketplaces.
+# scope: user (default) | project | local
+# marketplace: optional — specify when name is ambiguous across marketplaces
+#
+plugins:
+  - name: claude-hud
+    marketplace: claude-hud
+    scope: user
+    setup: /claude-hud:setup   # run this in Claude Code after first install
+  - name: feature-dev
+    scope: user
+  # - name: code-review
+  #   scope: user
+  # - name: commit-commands
+  #   scope: user
+
+# ── Skills ────────────────────────────────────────────────────────────────────
+# Custom slash-command skills defined as Markdown files in this repo.
+# Paths are relative to this config file.
+# scope: user → ~/.claude/commands/   (available in all projects)
+#        project → .claude/commands/  (available in current project only)
+#
+# skills:
+#   - path: skills/example-commit.md  # see skills/ for examples
+#     scope: user
+
+# ── Settings ──────────────────────────────────────────────────────────────────
+# Key/value pairs that will be merged into ~/.claude/settings.json.
+# Only the listed keys are touched; everything else is left unchanged.
+#
+settings:
+  model: opusplan
