@@ -42,4 +42,4 @@ plugins:
 # Only the listed keys are touched; everything else is left unchanged.
 #
 settings:
-  model: opusplan
+  model: opus
